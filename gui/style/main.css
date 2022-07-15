@@ -1,0 +1,66 @@
+body {
+    background-color: #202020;
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+button {
+    background-color: #232323;
+    border: 1px solid #404040;
+    color: white;
+    border-radius: 10px;
+}
+
+button:active {
+    background-color: #404040;
+    border: 1px solid #404040;
+    color: white;
+    border-radius: 10px;
+}
+
+h1 {
+    padding-left: 10px;
+}
+
+h2 {
+    padding-left: 10px;
+}
+
+p {
+    padding-left: 10px;
+}
+
+a {
+    padding-left: 10px;
+}
+
+.showButton {
+    position: absolute;
+    right: 10px;
+    margin-top: -50px;
+}
+.stuffPic {
+    align-items: left;
+    align-self: left;
+    padding-left: 10px;
+}
+.stuffContainer {
+    border: 1px solid #404040;
+    border-radius: 10px;
+}
+
+.picText {
+    position: absolute;
+    top: 100px;
+    right: 16px
+}
+.picText2 {
+    position: absolute;
+    top: 130px;
+    right: 16px
+}
+.picText3 {
+    position: absolute;
+    top: 160px;
+    right: 16px
+}

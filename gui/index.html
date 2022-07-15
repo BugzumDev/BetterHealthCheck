@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="style/main.css">
+    <title>PC Health Check</title>
+    <script type="text/javascript" src="/eel.js"></script>
+</head>
+<body>
+    <h1>PC health at a glance.</h1>
+    <img src="pic/laptop.jpg" alt="Laptop">
+    <h3 class="picText" id="laptopname">Laptop Name: </h3>
+    <h3 class="picText2" id="username">Local Username: </h3>
+    <h3 class="picText3" id="suggestions">Suggestions: </h3>
+    <br>
+
+    <script>
+        async function getAllStuff() {
+            document.getElementById("laptopname").innerHTML += await eel.getValue_computername()();
+            document.getElementById("username").innerHTML += await eel.getValue_username()();
+            document.getElementById("suggestions").innerHTML += await eel.scan_suggestions()();
+        }
+        getAllStuff();
+    </script>
+
+    <div class="stuffContainer">
+        <h1>Scan application</h1>
+        <button class="showButton" onclick='showElement("elementHold_scanner")'>Show more</button>
+        <div id="elementHold_scanner"></div>
+    </div>
+
+    <br>
+
+    <div class="stuffContainer">
+        <h1>Check corrupt Windows files</h1>
+        <button class="showButton" onclick='showElement("elementHold_corrupt")'>Show more</button>
+        <div id="elementHold_corrupt"></div>
+    </div>
+
+    <br>
+
+    <div class="stuffContainer">
+        <h1>Repair disk errors</h1>
+        <button class="showButton" onclick='showElement("elementHold_checkDiskHealth")'>Show more</button>
+        <div id="elementHold_checkDiskHealth"></div>
+    </div>
+
+    <script>
+        function showElement(element) {
+            elm = document.getElementById(element);
+            if (element == "elementHold_scanner") {
+                if (elm.innerHTML == '<p>Scan a file to determine whether it is malicious or not.</p> <br> <a href="https://virustotal.com">Scan it here!</a>') {
+                    elm.innerHTML = ''
+
+                } else {
+                    elm.innerHTML = '<p>Scan a file to determine whether it is malicious or not.</p> <br> <a href="https://virustotal.com">Scan it here!</a>';
+                }
+            }
+
+            else if (element == "elementHold_corrupt") {
+                if (elm.innerHTML == '<p>Scan for corrupt Windows files in your system.</p> <br> <button onclick="eel.sfcscanner()">Scan now!</button>') {
+                    elm.innerHTML = ''
+
+                } else {
+                    elm.innerHTML = '<p>Scan for corrupt Windows files in your system.</p> <br> <button onclick="eel.sfcscanner()">Scan now!</button>';
+                }
+            }
+
+            else if (element == "elementHold_checkDiskHealth") {
+                if (elm.innerHTML == '<p>Checks your disks for errors and repairs them.</p> <br> <button onclick="eel.checkdisk()">Repair now!</button>') {
+                    elm.innerHTML = ''
+
+                } else {
+                    elm.innerHTML = '<p>Checks your disks for errors and repairs them.</p> <br> <button onclick="eel.checkdisk()">Repair now!</button>';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
